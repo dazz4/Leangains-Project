@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="leangains.view.RootLayoutController">
+   <children>
+      <MenuBar layoutY="1.0" prefHeight="25.0" prefWidth="1000.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Edit">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <TabPane layoutY="26.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="702.0" prefWidth="1000.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="profileTab" closable="false" text="Profile">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutX="540.0" layoutY="-7.0" prefHeight="673.0" prefWidth="1280.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="290.0">
+                                 <children>
+                                    <GridPane layoutX="91.0" layoutY="47.0" prefHeight="454.0" prefWidth="315.0">
+                                      <columnConstraints>
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="214.0" />
+                                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="101.0" />
+                                      </columnConstraints>
+                                      <rowConstraints>
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                      </rowConstraints>
+                                       <children>
+                                          <Label text="User name:" />
+                                          <Label text="Gender:" GridPane.rowIndex="1" />
+                                          <Label text="Age:" GridPane.rowIndex="2" />
+                                          <Label text="Weight:" GridPane.rowIndex="3" />
+                                          <Label text="Height:" GridPane.rowIndex="4" />
+                                          <Label text="Body fat:" GridPane.rowIndex="5" />
+                                          <Label text="Muscle mass:" GridPane.rowIndex="6" />
+                                          <Label text="Activity:" GridPane.rowIndex="7" />
+                                          <Label fx:id="userNameLabel" alignment="CENTER" contentDisplay="CENTER" text="default" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                                          <ChoiceBox id="genderBox" fx:id="genderField" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                              <items>
+                                                  <FXCollections fx:factory="observableArrayList">
+                                                      <String fx:value="Man" />
+                                                      <String fx:value="Woman" />
+                                                  </FXCollections>
+                                              </items>
+                                          </ChoiceBox>
+                                          <TextField fx:id="ageField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <TextField fx:id="weightField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                             <tooltip>
+                                                <Tooltip contentDisplay="TOP" text="Enter weight in the Weight Tracker tab.">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font></Tooltip>
+                                             </tooltip></TextField>
+                                          <TextField fx:id="heightField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <TextField fx:id="bodyFatField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <TextField fx:id="muscleMassField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <TextField fx:id="acvitityField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                       </children>
+                                    </GridPane>
+                                    <Button fx:id="saveButton" layoutX="201.0" layoutY="534.0" mnemonicParsing="false" onAction="#handleUpdate" text="Update &amp; Save" />
+                                 </children>
+                              </AnchorPane>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="668.0" prefWidth="172.0">
+                                 <children>
+                                    <GridPane layoutX="91.0" layoutY="42.0" prefHeight="454.0" prefWidth="315.0">
+                                       <columnConstraints>
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="380.0" minWidth="10.0" prefWidth="214.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="231.0" minWidth="10.0" prefWidth="101.0" />
+                                       </columnConstraints>
+                                       <rowConstraints>
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                       </rowConstraints>
+                                       <children>
+                                          <Label text="Current weight:" />
+                                          <Label text="Weekly average weight loss:" GridPane.rowIndex="1" />
+                                          <Label text="Biweekly average weight loss:" GridPane.rowIndex="2" />
+                                          <Label text="Monthly average weight loss:" GridPane.rowIndex="3" />
+                                          <Label text="Deadlift PB:" GridPane.rowIndex="4" />
+                                          <Label text="Squat PB:" GridPane.rowIndex="5" />
+                                          <Label text="Bench Press PB:" GridPane.rowIndex="6" />
+                                          <Label fx:id="currentWeight" alignment="CENTER" text="currentWeight" GridPane.columnIndex="1" />
+                                          <Label fx:id="weeklyAverage" alignment="CENTER" contentDisplay="CENTER" layoutX="236.0" layoutY="30.0" text="weeklyAverage" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                          <Label fx:id="biweeklyAverage" text="biweeklyAverage" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                          <Label fx:id="monthlyAverage" text="monthlyAverage" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                          <Label fx:id="deadliftPB" text="deadliftPB" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                                          <Label fx:id="squatPB" text="squatPB" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                          <Label fx:id="benchPressPB" text="benchPressPB" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                                          <Label layoutX="10.0" layoutY="331.0" text="Calorie intake for maitenance:" GridPane.rowIndex="7" />
+                                          <Label text="Calorie intake for fat loss:" GridPane.rowIndex="8" />
+                                          <Label fx:id="calorieMaintenance" text="calorieMaintenance" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                                          <Label fx:id="calorieDeficit" text="calorieDeficit" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                                       </children>
+                                    </GridPane>
+                                 </children>
+                              </AnchorPane>
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="weightTrackerTab" closable="false" text="Weight Tracker">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="624.0" prefWidth="1000.0">
+                     <children>
+                        <TableView fx:id="weightTrackerTable" layoutX="14.0" layoutY="49.0" prefHeight="401.0" prefWidth="971.0">
+                          <columns>
+                              <TableColumn fx:id="idCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="#" visible="false" />
+                            <TableColumn fx:id="dateCol" prefWidth="150.0" text="Date" />
+                              <TableColumn fx:id="weightCol" prefWidth="154.0" text="Weight" />
+                              <TableColumn fx:id="waistCol" prefWidth="120.0" text="Waist" />
+                              <TableColumn fx:id="abdominalCol" prefWidth="120.0" text="Abdominal" />
+                              <TableColumn fx:id="hipsCol" prefWidth="120.0" text="Hips" />
+                              <TableColumn fx:id="chestCol" prefWidth="120.0" text="Chest" />
+                              <TableColumn fx:id="neckCol" prefWidth="97.0" text="Neck" />
+                              <TableColumn fx:id="bicepsCol" prefWidth="118.0" text="Biceps" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <LineChart fx:id="weightChart" layoutX="14.0" layoutY="458.0" prefHeight="201.0" prefWidth="392.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                        <ButtonBar layoutX="720.0" layoutY="14.0">
+                           <buttons>
+                              <Button fx:id="addWeight" mnemonicParsing="false" onAction="#handleAddWeight" text="Add" />
+                              <Button fx:id="editWeight" mnemonicParsing="false" onAction="#handleEditWeightTracker" text="Edit" />
+                              <Button fx:id="deleteWeight" mnemonicParsing="false" onAction="#handleDeleteWeight" text="Delete" />
+                           </buttons>
+                        </ButtonBar>
+                        <Line endX="100.0" startX="-100.0" />
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="trainingLogTab" closable="false" text="Training Log">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ButtonBar layoutX="723.0" layoutY="14.0">
+                           <buttons>
+                              <Button fx:id="addTraining" mnemonicParsing="false" text="Add" />
+                              <Button fx:id="editTraining" mnemonicParsing="false" text="Edit" />
+                              <Button fx:id="deleteTraining" mnemonicParsing="false" text="Delete" />
+                           </buttons>
+                        </ButtonBar>
+                        <DatePicker fx:id="trainingLogDateField" layoutX="91.0" layoutY="14.0" />
+                        <Label layoutX="13.0" layoutY="18.0" text="Choose date:" />
+                        <GridPane layoutX="14.0" layoutY="548.0" prefHeight="105.0" prefWidth="358.0">
+                          <columnConstraints>
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                          </columnConstraints>
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                           <children>
+                              <Label text="Deadlift PB:" />
+                              <Label text="Squat PB" GridPane.rowIndex="1" />
+                              <Label text="Bench Press PB" GridPane.rowIndex="2" />
+                              <Label text="deafliftPB" GridPane.columnIndex="1" />
+                              <Label text="squatPB" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label text="benchPressPB" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                           </children>
+                        </GridPane>
+                        <TableView fx:id="trainingLogTable" fixedCellSize="50.0" layoutX="14.0" layoutY="48.0" prefHeight="496.0" prefWidth="973.0">
+                          <columns>
+                            <TableColumn fx:id="trainingLogID" maxWidth="25.0" minWidth="25.0" prefWidth="25.0" text="ID" />
+                            <TableColumn fx:id="exerciseCol" prefWidth="75.0" text="Exercise" />
+                              <TableColumn maxWidth="100.0" minWidth="100.0" prefWidth="100.0" text="Set 1">
+                                 <columns>
+                                    <TableColumn fx:id="repsFirstSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Reps" />
+                                    <TableColumn fx:id="weightFirstSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Weight" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Set 2">
+                                 <columns>
+                                    <TableColumn fx:id="repsSecondSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Reps" />
+                                    <TableColumn fx:id="weightSecondSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Weight" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Set 3">
+                                 <columns>
+                                    <TableColumn fx:id="repsThirdSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Reps" />
+                                    <TableColumn fx:id="weightThirdSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Weight" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Set 4">
+                                 <columns>
+                                    <TableColumn fx:id="repsFourthSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Reps" />
+                                    <TableColumn fx:id="weightFourthSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Weight" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn prefWidth="75.0" text="Set 5">
+                                 <columns>
+                                    <TableColumn fx:id="repsFifthSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Reps" />
+                                    <TableColumn fx:id="weightFifthSetCol" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" text="Weight" />
+                                 </columns>
+                              </TableColumn>
+                              <TableColumn fx:id="commentsCol" prefWidth="75.0" text="Comments" />
+                          </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                     </children></AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="settingsTab" closable="false" text="Settings">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
